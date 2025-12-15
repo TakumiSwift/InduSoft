@@ -5,9 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InduSoft</title>
     <link rel="stylesheet" href="../css/styles.css"/>
-    <link rel="stylesheet" href="../js/scripts.js"/>
 </head>
 <body>
-    
+    <div id="mainButtons">
+
+        <button id="btnGetData">Получить данные</button>
+
+        <button id="btnGetDataById" style="display: block;">Получить данные по id</button>
+        
+
+        <button id="btnIndexing" style="display: block;">Индексировать</button>
+        
+
+        <button id="btnCreateNote" style="display: block;">Создать запись</button>
+        <button id="btnChangeNote" style="display: block;">Редактировать запись</button>
+        
+        <button id="btnDeleteNote" style="display: block;">Удалить запись</button>
+        
+        
+    </div>
+
+    <div id="formToDeleteNote" style="display: none;">
+            <label class="form-label" id="labelDeleteNote"></label>
+            <div class="form-buttons">
+                <button id="btnDeleteNoteClose">Закрыть</button>
+                <button id="btnDeleteNoteConfirm">Удалить</button>
+            </div>
+    </div>
+
+    <div id="formToIndexSalarys" style="display: none;">
+            <h3 style="margin-bottom: 20px; text-align: center; font-size: 32px;">Индексировать</h3>
+            <div class="form-group">
+                <label class="form-label" for="inputDepIdForIndexing">ID отдела (DEPARTMENT_ID)</label>
+                <input class="form-input" id="inputDepIdForIndexing" type="text" placeholder="Введите DEPARTMENT_ID" value="1">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="inputPercentForIndexing">Процент повышения (%)</label>
+                <input class="form-input" id="inputPercentForIndexing" type="text" placeholder="Введите PERCENT_SALARY_UP" value="0">
+            </div>
+            <div class="form-button">
+                <button id="btnIndexSalarysUpConfirm">Подтвердить</button>
+            </div>
+        </div>
+
+    <div id="formToFindDataById" style="display: none;">
+            <h3 style="margin-bottom: 20px; text-align: center;">Поиск по ID</h3>
+            <div class="form-group">
+                <label class="form-label" for="inputFieldWithIdForSearch">ID сотрудника</label>
+                <input class="form-input" id="inputFieldWithIdForSearch" type="text" placeholder="Введите Id сотрудника">
+            </div>
+            <div class="form-buttons">
+                <button id="btnGetDataByIdConfirm">Найти</button>
+            </div>
+    </div>
+
+    <div id="formToCreateNote" style="display: none;">
+        <label id="labelCreateNote" style="font-weight: bold;margin-bottom: 18px;color: black;font-size: 32px;"></label>
+        <div class="form-group">
+            <label class="form-label" id="labelNewNoteID" for="inputNewNoteID">ID</label>
+            <input class="form-input" id="inputNewNoteID" type="text" placeholder="Введите ID">
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="inputNewNoteDepId">DEPARTMENT_ID</label>
+            <input class="form-input" id="inputNewNoteDepId" type="text" placeholder="Введите DEPARTMENT_ID">
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="inputNewNoteChiefId">CHIEF_ID</label>
+            <input class="form-input" id="inputNewNoteChiefId" type="text" placeholder="Введите CHIEF_ID">
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="inputNewNoteName">NAME</label>
+            <input class="form-input" id="inputNewNoteName" type="text" placeholder="Введите NAME">
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="inputNewNoteSalary">SALARY</label>
+            <input class="form-input" id="inputNewNoteSalary" type="text" placeholder="Введите SALARY">
+        </div>
+        <div class="form-buttons">
+            <button id="btnNewNoteClose">Закрыть</button>
+            <button id="btnNewNoteConfirm">Ок</button>
+        </div>
+    </div>
+
+    <div class="tableContainer">
+        <table border="1" id="fullTable">
+            <caption>Таблица сотрудников</caption>
+            <thead id="tableTitles">
+                <tr><td>ID</td>
+                <td>DEPARTMENT_ID</td>
+                <td>CHIEF_ID</td>
+                <td>NAME</td>
+                <td>SALARY</td></tr>
+            </thead>
+            <tbody id="tableWithData">
+                <tr><td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="../js/AllScripts.js"></script>
 </body>
 </html>

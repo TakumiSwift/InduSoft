@@ -21,7 +21,20 @@ namespace InduSoft_Web_Api_App
             builder.Services.AddScoped<EmployeeService>();
 
             builder.Services.AddControllers();
-            
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecific",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://127.0.0.1:5500",
+                                            "http://localhost:5500")
+                               .AllowAnyMethod()
+                               .AllowAnyHeader();
+                    });
+            });
+
+
             //builder.Services.AddHttpClient<ApiService>(client =>
             //{
             //    client.BaseAddress = new Uri("https://localhost:44305/api/");
@@ -40,9 +53,9 @@ namespace InduSoft_Web_Api_App
 
             app.UseHttpsRedirection();
 
-            app.UseStaticFiles();
-
             app.UseAuthorization();
+
+            app.UseCors("AllowSpecific");
 
             app.MapControllers();
 

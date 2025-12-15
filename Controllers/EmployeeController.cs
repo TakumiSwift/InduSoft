@@ -59,8 +59,8 @@ namespace InduSoft_Web_Api_App.Controllers
 
         // Get api/table/employee/updatesalaryfordepartment
         [HttpGet("updatesalaryfordepartment")]
-        public async Task<ActionResult<List<FunctionResult>>> Put([FromQuery] int dep_id,
-                                                                  [FromQuery] decimal percent_up)
+        public async Task<ActionResult<List<FunctionResult>>> IndexDepartment([FromQuery] int dep_id,
+                                                                              [FromQuery] decimal percent_up)
         {
             var result = await employeeService.UseFunction(dep_id, percent_up);
             return Ok(result);
